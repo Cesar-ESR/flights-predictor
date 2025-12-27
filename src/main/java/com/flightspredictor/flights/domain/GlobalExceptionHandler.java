@@ -1,5 +1,6 @@
 package com.flightspredictor.flights.domain;
 
+import com.flightspredictor.flights.domain.error.BusinessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -24,5 +25,14 @@ public class GlobalExceptionHandler {
         response.put("Error", "Error de Validacion");
         response.put("Detalles", errores);
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(BusinessException.class)
+    public ResponseEntity<Object> handlerBusinessError(BusinessException ex){
+        Map<String, Object> respuesta = new HashMap<>();
+        respuesta.put("Estado", HttpStatus.BAD_REQUEST.value());
+        respuesta.put("Codigo", ex.getCode());
+        respuesta.put("Mensaje", ex.getMessage());
+        return new ResponseEntity<>(respuesta, HttpStatus.BAD_REQUEST);
     }
 }
