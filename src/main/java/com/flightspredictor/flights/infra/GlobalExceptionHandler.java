@@ -1,4 +1,4 @@
-package com.flightspredictor.flights.domain;
+package com.flightspredictor.flights.infra;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,4 +25,5 @@ public class GlobalExceptionHandler {
         response.put("Detalles", errores);
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
+
 }
