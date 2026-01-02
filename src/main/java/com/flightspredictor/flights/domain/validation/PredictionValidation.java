@@ -1,6 +1,7 @@
 package com.flightspredictor.flights.domain.validation;
 
 import com.flightspredictor.flights.domain.dto.PredictionRequest;
+import com.flightspredictor.flights.domain.error.BusinessErrorCodes;
 import com.flightspredictor.flights.domain.error.BusinessException;
 import org.springframework.stereotype.Component;
 
@@ -12,7 +13,7 @@ public class PredictionValidation {
         if (dto.getOrigin()!= null && dto.getDest()!= null && dto.getOrigin().equalsIgnoreCase(dto.getDest())){
 
                 throw new BusinessException(
-                        "INVALID_ROUTE",
+                        BusinessErrorCodes.INVALIDE_ROUTE,
                         "El lugar de origen y el destino no pueden ser iguales"
                 );
         }
