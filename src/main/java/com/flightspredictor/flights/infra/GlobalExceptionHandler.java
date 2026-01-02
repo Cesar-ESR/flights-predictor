@@ -9,20 +9,39 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Maneja errores de validación producidos por Bean Validation (@Valid).
+ *
+ * Se ejecuta automáticamente cuando un DTO no cumple las restricciones
+ * definidas (por ejemplo @NotNull, @NotBlank, @Pattern, etc.).
+ *
+ * Retorna una respuesta HTTP 400 (Bad Request) con:
+ * - Código de estado
+ * - Tipo de error
+ * - Detalle de los campos inválidos
+ *
+ */
 @ControllerAdvice
 public class GlobalExceptionHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Object> handlerValidationError(MethodArgumentNotValidException ex){
+
+        // Mapa que contendrá los errores de validación por campo
         Map<String, String> errores = new HashMap<>();
+
+        // Se recorren los errores de validación y se mapean.
         ex.getBindingResult()
                 .getFieldErrors()
                 .forEach(error ->
                         errores.put(error.getField(), error.getDefaultMessage())
                 );
+        // Construccion de la respuesta de error.
         Map<String, Object> response = new HashMap<>();
         response.put("Estado", HttpStatus.BAD_REQUEST.value());
         response.put("Error", "Error de Validacion");
         response.put("Detalles", errores);
+
+        //Retorna un HTTP 400
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 
