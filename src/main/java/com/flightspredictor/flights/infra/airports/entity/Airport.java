@@ -1,5 +1,6 @@
 package com.flightspredictor.flights.infra.airports.entity;
 
+import com.flightspredictor.flights.infra.airports.dto.AirportData;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -33,8 +34,21 @@ public class Airport {
     private Double elevation;
 
     // Zona horaria (America/Lima)
-    private String timezone;
+    private String timeZone;
 
     // Enlace directo a la ubicación del aeropuerto en google maps
     private String googleMaps;
+
+    public Airport(AirportData data) {
+        this.id = null;
+        this.airportIata = data.airportIata();
+        this.airportName = data.airportName();
+        this.countryName = data.countryName();
+        this.cityName = data.cityName();
+        this.longitude = data.longitude();
+        this.latitude = data.latitude();
+        this.elevation = data.elevation();
+        this.timeZone = data.timeZone();
+        this.googleMaps = data.googleMaps();
+    }
 }

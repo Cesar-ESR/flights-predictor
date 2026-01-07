@@ -1,10 +1,10 @@
 create table airports (
 
     id bigint not null  auto_increment,
-    airport_iata char(3),
-    airport_name varchar(150) not null,
-    country_name varchar(50) not null,
-    city_name varchar(100)not null,
+    airport_iata char(3) not null,
+    airport_name varchar(255),
+    country_name varchar(50),
+    city_name varchar(100),
     latitude decimal(9.6) not null,
     longitude decimal(9.6) not null,
     elevation int(4),
