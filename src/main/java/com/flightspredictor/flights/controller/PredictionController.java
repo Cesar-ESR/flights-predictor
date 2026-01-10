@@ -1,7 +1,7 @@
 package com.flightspredictor.flights.controller;
 
-import com.flightspredictor.flights.domain.dto.PredictionRequest;
-import com.flightspredictor.flights.domain.dto.ModelPredictionResponse;
+import com.flightspredictor.flights.domain.requests.dto.PredictionRequest;
+import com.flightspredictor.flights.domain.requests.dto.ModelPredictionResponse;
 import com.flightspredictor.flights.domain.service.PredictionService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

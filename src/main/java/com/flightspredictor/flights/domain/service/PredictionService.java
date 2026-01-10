@@ -1,9 +1,9 @@
 package com.flightspredictor.flights.domain.service;
 
-import com.flightspredictor.flights.domain.dto.ModelPredictionRequest;
-import com.flightspredictor.flights.domain.dto.PredictionRequest;
-import com.flightspredictor.flights.domain.dto.ModelPredictionResponse;
-import java.time.LocalDateTime;
+import com.flightspredictor.flights.domain.requests.dto.ModelPredictionRequest;
+import com.flightspredictor.flights.domain.requests.dto.PredictionRequest;
+import com.flightspredictor.flights.domain.requests.dto.ModelPredictionResponse;
+
 import java.time.OffsetDateTime;
 import org.springframework.stereotype.Service;
 

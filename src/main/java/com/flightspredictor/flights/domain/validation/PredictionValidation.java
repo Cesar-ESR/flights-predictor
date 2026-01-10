@@ -2,7 +2,7 @@ package com.flightspredictor.flights.domain.validation;
 
 import org.springframework.stereotype.Component;
 
-import com.flightspredictor.flights.domain.dto.PredictionRequest;
+import com.flightspredictor.flights.domain.requests.dto.PredictionRequest;
 import com.flightspredictor.flights.domain.error.BusinessErrorCodes;
 import com.flightspredictor.flights.domain.error.BusinessException;
 import com.flightspredictor.flights.domain.service.AirportLookupService;
