@@ -18,7 +18,7 @@ import lombok.Getter;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AirportResponse {
     @JsonProperty("iata")
-    String iata;
+    String airportIata;
 
     @JsonProperty("fullName")
     String airportName;
@@ -31,7 +31,7 @@ public class AirportResponse {
     Location location;
     Elevation elevation;
 
-    @JsonProperty("timaZone")
+    @JsonProperty("timeZone")
     String timezone;
 
     GoogleMaps googleMaps;
