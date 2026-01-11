@@ -23,21 +23,34 @@ public class Airport {
     private Long id;
 
     // Abreviasión de tres letras asignadas por la Asociación Internacional de Transporte Aéreo
+    @Column(name = "airport_iata", nullable = false, length = 3)
     private String airportIata;
+
+    @Column(name = "airport_name")
     private String airportName;
+
+    @Column(name = "country")
     private String country;
+
+    @Column(name = "city_name")
     private String cityName;
 
+    @Column(name = "longitude",nullable = false)
     private Float longitude;
+
+    @Column(name = "longitude", nullable = false)
     private Float latitude;
 
     // Altura en metros sobre el nivel del mar (msnm)
+    @Column(name = "elevation")
     private Double elevation;
 
     // Zona horaria (America/Lima)
+    @Column(name = "time_zone", nullable = false)
     private String timeZone;
 
     // Enlace directo a la ubicación del aeropuerto en google maps
+    @Column(name = "google_maps", nullable = false)
     private String googleMaps;
 
     public Airport(AirportData data) {
