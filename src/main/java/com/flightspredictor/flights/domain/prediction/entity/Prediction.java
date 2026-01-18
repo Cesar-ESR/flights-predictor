@@ -40,11 +40,14 @@ public class Prediction {
     private String resultadoReal;
 
     public Prediction(ModelPredictionResponse data) {
-        this.id = null;
-        this.prevision = data.prevision();
-        this.probability = data.probability();
-        this.status = data.status();
+        if ("Retrasado".equalsIgnoreCase(data.prevision())) {
+            this.prevision = Prevision.DELAYED;
+        } else {
+            this.prevision = Prevision.ON_TIME;
+        }
+        this.status = Status.PROCESSED;
     }
+
     public void setResultadoReal(String resultadoReal) {
     this.resultadoReal = resultadoReal;
 }
