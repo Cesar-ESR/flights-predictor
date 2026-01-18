@@ -32,9 +32,9 @@ public class Prediction {
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    @OneToOne
-    @JoinColumn(name = "request_id", nullable = false, unique = true)
-    private Request requests;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "request_id")
+    private Request request;
 
     @Column(name = "resultado_real")
     private String resultadoReal;
@@ -51,4 +51,8 @@ public class Prediction {
     public void setResultadoReal(String resultadoReal) {
     this.resultadoReal = resultadoReal;
 }
+    public void setRequest(Request request) {
+    this.request = request;
 }
+}
+
